@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Produits</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/static/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="container mt-5">
+        <h1>Gestion des Produits</h1>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title"style="color: var(--color-text);">Ajouter un Produit</h5>
+                <form method="POST" action="{{ url_for('gestion_produits') }}">
+                    <input type="hidden" name="action" value="ajouter">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="nom" class="form-label"style="color: var(--color-text);">Nom</label>
+                            <input type="text" class="form-control" id="nom" name="nom" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="description" class="form-label"style="color: var(--color-text);">Description</label>
+                            <input type="text" class="form-control" id="description" name="description" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="prix" class="form-label"style="color: var(--color-text);">Prix</label>
+                            <input type="number" class="form-control" id="prix" name="prix" step="0.01" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="stock" class="form-label"style="color: var(--color-text);">Stock</label>
+                            <input type="number" class="form-control" id="stock" name="stock" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="fournisseur" class="form-label"style="color: var(--color-text);">Fournisseur</label>
+                            <input type="text" class="form-control" id="fournisseur" name="fournisseur" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="unite" class="form-label"style="color: var(--color-text);">Unité</label>
+                            <input type="text" class="form-control" id="unite" name="unite" value="pièce" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Ajouter</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"style="color: var(--color-text);">Liste des Produits</h5>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Description</th>
+                            <th>Prix</th>
+                            <th>Stock</th>
+                            <th>Fournisseur</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for produit in produits %}
+                        <tr>
+                            <td>{{ produit.id }}</td>
+                            <td>{{ produit.nom }}</td>
+                            <td>{{ produit.description }}</td>
+                            <td>{{ produit.prix }}</td>
+                            <td>{{ produit.stock }}</td>
+                            <td>{{ produit.fournisseur }}</td>
+                            <td>
+                                <div class="d-flex gap-1">
+                                    <form method="POST" action="{{ url_for('gestion_produits') }}">
+                                        <input type="hidden" name="action" value="modifier">
+                                        <input type="hidden" name="produit_id" value="{{ produit.id }}">
+                                        <input type="hidden" name="operation" value="add">
+                                        <div class="input-group input-group-sm" style="width: 140px;">
+                                            <input type="number" name="increment" class="form-control text-center" value="1" required>
+                                            <button type="submit" class="btn btn-sm btn-outline-success">+ Ajouter</button>
+                                        </div>
+                                    </form>
+                                    <form method="POST" action="{{ url_for('gestion_produits') }}">
+                                        <input type="hidden" name="action" value="modifier">
+                                        <input type="hidden" name="produit_id" value="{{ produit.id }}">
+                                        <input type="hidden" name="operation" value="remove">
+                                        <div class="input-group input-group-sm" style="width: 140px;">
+                                            <input type="number" name="increment" class="form-control text-center" value="1" required>
+                                            <button type="submit" class="btn btn-sm btn-outline-danger">- Retirer</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

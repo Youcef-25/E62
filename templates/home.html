@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Corsaire Télécom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="home">
+    <header>
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Corsaire" class="logo">
+        <h1>Bienvenue sur le portail interne Corsaire Télécom</h1>
+    </header>
+
+    <main class="button-container">
+        <a href="{{ url_for('scan') }}" class="btn">Pointage horaire</a>
+        <a href="{{ url_for('dashboard') }}" class="btn">Gestion de stock</a>
+        <a class="btn inactive">Gestion des camions</a>
+        <a class="btn inactive">Gestion des utilisateurs</a>
+        <a class="btn inactive">Réinitialisation mot de passe</a>
+    </main>
+
+    <footer>
+        <p>© 2025 Corsaire Télécom - Tous droits réservés</p>
+    </footer>
+</body>
+</html>

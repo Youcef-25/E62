@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Pointage QR Code - Corsaire Télécom</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-sombre">
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Corsaire Télécom" class="logo">
+            <h1>Scanner un QR Code</h1>
+            <p class="sous-titre">Bienvenue sur le système de pointage de Corsaire Télécom</p>
+        </header>
+
+        <main class="content">
+            <div id="notification" class="hidden"></div>
+
+            <section>
+                <button id="start-camera" class="btn">Activer la caméra</button>
+                <div class="camera-frame">
+                    <video id="video" autoplay muted class="hidden video"></video>
+                </div>
+            </section>
+
+            <section>
+                <form id="upload-form" enctype="multipart/form-data">
+                    <label for="qr-image">Ou déposez une image :</label>
+                    <input type="file" id="qr-image" name="qr_image" accept="image/*">
+                    <button type="submit" class="btn">Scanner l'image</button>
+                </form>
+            </section>
+
+            <section>
+                <div id="result">En attente de détection QR...</div>
+                <div id="timestamp">Horodatage : Non défini</div>
+                <div id="timer">Chronomètre : 00:00:00</div>
+                <div class="btn-group">
+                    <button id="start-timer" class="btn">Démarrer le travail</button>
+                    <button id="pause-timer" class="btn btn-light">Pause / Reprendre</button>
+                    <button id="stop-timer" class="btn btn-light">Fin de session</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            © 2025 Corsaire Télécom - Tous droits réservés
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

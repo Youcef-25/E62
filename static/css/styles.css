@@ -1,0 +1,227 @@
+/* ========================
+   Variables Globales (Rouge / Noir)
+======================== */
+:root {
+  --color-primary: #ff0000;           /* Rouge vif */
+  --color-secondary:  #ffffff;        /* Gris très foncé */
+  --color-bg: #181818;                /* Fond global noir/gris foncé */
+  --color-text: #ffffff;              /* Texte blanc */
+  --color-sidebar-bg: #1a1a1a;        /* Sidebar noir */
+  --color-header-bg: #1a1a1a;         /* Header noir */
+  --color-card-bg: #1f1f1f;           /* Cartes gris foncé */
+  --color-border: #ffffff;            /* Bordures gris foncé */
+  --color-link: #ff0000;              /* Liens rouges */
+  --color-link-hover: #b30000;        /* Rouge foncé au survol */
+  --color-table-header-bg: #1a1a1a;   /* Entête tableau noir */
+  --color-table-row-hover-bg: #2a2a2a;/* Survol lignes tableau gris foncé */
+}
+
+/* ========================
+ Structure Générale
+======================== */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: Arial, sans-serif;
+}
+
+/* ========================
+ Sidebar
+======================== */
+.sidebar {
+  background-color: var(--color-sidebar-bg);
+  color: #fff;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding-top: 1rem;
+}
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+}
+.sidebar a:hover {
+  color: var(--color-primary);
+}
+
+/* ========================
+ Header / Navbar
+======================== */
+.navbar, 
+.header,
+.bg-light {
+  background-color: var(--color-header-bg) !important;
+  border-bottom: 3px solid var(--color-primary);
+}
+
+header {
+  text-align: center;
+}
+
+.navbar a {
+  color: var(--color-text) !important;
+}
+.navbar a:hover {
+  color: var(--color-primary) !important;
+}
+
+/* ========================
+ Contenu Principal
+======================== */
+.content {
+  padding: 2rem;
+}
+
+/* ========================
+ Cartes
+======================== */
+.card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: .25rem;
+  box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .5);
+}
+
+.card.bg-success,
+.card.bg-info {
+  background-color: var(--color-card-bg) !important;
+  color: var(--color-text) !important;
+}
+
+/* ========================
+ Boutons
+======================== */
+.btn-light {
+  background-color: var(--color-primary) !important;
+  color: #fff !important;
+  border: none;
+}
+.btn-light:hover {
+  background-color: var(--color-link-hover) !important;
+  color: #fff !important;
+}
+
+.btn {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-primary);
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  width: 250px;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--color-link-hover);
+}
+
+.btn.inactive {
+  background-color: #444;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ========================
+ Liens
+======================== */
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+/* ========================
+ Tableaux
+======================== */
+.table {
+  background-color: var(--color-card-bg);
+}
+.table thead {
+  background-color: var(--color-table-header-bg);
+}
+.table tbody tr:hover {
+  background-color: var(--color-table-row-hover-bg);
+}
+
+/* ========================
+ Suppression des Gutters
+======================== */
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > .col,
+.row.no-gutters > [class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* ========================
+   Pied de page (Footer)
+======================== */
+footer {
+  color: var(--color-text);
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #333;
+}
+
+/* ========================
+   Accueil / Boutons centrés
+======================== */
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.button-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 2rem;
+}
+
+/* ========================
+   Logo
+======================== */
+.logo {
+  max-height: 60px;
+  margin-bottom: 10px;
+}
+
+.camera-frame {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    border: 2px dashed #555;
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+
+#notification {
+    text-align: center;
+    font-weight: bold;
+    margin: 1rem auto;
+    max-width: 500px;
+    transition: opacity 0.3s ease;
+}
