@@ -15,7 +15,7 @@ def scan():
     return render_template('index.html')
 
 # Configuration de la base de données
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@localhost:3306/E6'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://e62_db_user:fTF5XkXkGkjzPstAeF7QshFauMMDiQo5@dpg-d10vb2ali9vc7387et60-a/e62_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialisation de SQLAlchemy
